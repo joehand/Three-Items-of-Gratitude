@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="ClearType" content="true">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- DNS prefetch -->
+        <link rel="dns-prefetch" href="//ajax.googleapis.com">
+
+        <title>{% block title %}{% endblock title %}</title>
+        <meta name="description" content="{% block description %}{% endblock description %}">
+
+        <!-- Styles -->
+        {%- block css %}{% endblock -%}
+
+        {%- block webfonts %}
+        <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+        <script>
+          WebFont.load({
+            google: {
+              families:  [ {%- block google_fonts -%}
+                        /* Put in fonts here:
+                           'EB+Garamond::latin',
+                           'Open+Sans:400italic,400,700,300:latin'
+                        */{%- endblock google_fonts -%}]
+            }
+          });
+        </script>
+        {% endblock webfonts -%}
+    </head>
+    <body class="{% block body_class %}{% endblock %}">
+        <div role="document" class="document">
+        {%- block site_header -%}
+        {% endblock site_header -%}
+
+        {%- block main %}
+            <main role="main" class="main wrapper">
+                {%- block main_header -%}
+                {% endblock main_header -%}
+                <div class="page-content">
+                    {%- with messages = get_flashed_messages() %}
+                          {% if messages %}
+                            <ul class="flashes">
+                            {% for message in messages %}
+                                <li>{{ message | safe}}</li>
+                            {% endfor %}
+                            </ul>
+                          {% endif %}
+                    {%- endwith -%}
+
+                    {%- block content %}
+                    {% endblock content -%}
+                </div> <!-- .page-content  -->
+
+                {%- block main_footer -%}
+                {% endblock main_footer -%}
+            </main> <!-- .main  -->
+        {%- endblock main -%}
+
+        {%- block site_footer -%}
+        {% endblock site_footer -%}
+
+        </div> <!-- document -->
+    {%- block footer_js -%}
+    {%- endblock footer_js -%}
+    </body>
+</html>

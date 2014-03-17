@@ -1,0 +1,10 @@
+{% extends "_site.html" %}
+
+{%- block content -%}
+    <h1>Hello World? Test</h1>
+
+    {{g.grateful_today}}
+    {% for item in g.items %}
+        {{item.gratitude}}
+    {%- endfor -%}
+{%- endblock -%}

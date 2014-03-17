@@ -1,0 +1,59 @@
+{#
+    File: _site.html
+    Description: This file is used to create any site wide blocks (navigation, headers, footers, etc.)
+                 All of the basic HTML structure is inherited from _base.html.
+#}
+{% extends "_base.html" %}
+
+{% block title %}
+{% endblock title %}
+
+{% block description %}
+{% endblock description %}
+
+{%- block css %}
+{#
+    CSS Files (with link)
+    {% set css_file = 'style.css' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename=css_file)}}">
+#}
+{% endblock -%}
+
+{# Using Web Fonts? (e.g. Google, TypeKit, etc.) #}
+{%- block google_fonts %}
+{#
+    List Google Web fonts families in this block.
+#}
+'EB+Garamond::latin', 'Open+Sans:400italic,400,700,300:latin'
+{% endblock google_fonts -%}
+
+{# Not Using Web Fonts?
+    Move this block outside this comment:
+    {%- block webfonts %}{% endblock webfonts -%}
+#}
+
+{% block body_class %}{% endblock %}
+
+{%- block site_header -%}
+{#
+    Anything in the site header, e.g. Nav, Title, etc.
+    This goes outside the main content wrapper.
+#}
+{% endblock site_header -%}
+
+{# BLOCK MAIN START #}
+    {%- block main_header -%}
+    {% endblock main_header -%}
+
+    {%- block content %}
+    {% endblock content -%}
+
+    {%- block main_footer -%}
+    {% endblock main_footer -%}
+{# BLOCK MAIN END #}
+
+{%- block site_footer -%}
+{% endblock site_footer -%}
+
+{%- block footer_js -%}
+{%- endblock footer_js -%}
