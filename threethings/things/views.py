@@ -39,7 +39,7 @@ class ItemView(FlaskView):
         items = Item.objects(
                     user_ref=current_user.id,
                     created_at__gte=date1,
-                    created_at__lte=date2,
+                    created_at__lt=date2,
                 )
         return render_template('single.html', items=items, date = date1)
 
