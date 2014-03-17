@@ -1,10 +1,49 @@
 {% extends "_site.html" %}
+{% import "macros/_forms.html" as wtf -%}
+
+{% set title = 'Three Good Things' %}
+
+{% block title %}{{title}}{% endblock %}
 
 {%- block content -%}
-    <h1>Hello World? Test</h1>
+    <h1>{{title}}</h1>
 
-    {{g.grateful_today}}
+    {% if form %}
+        <form class="form item-form" method="post" action="{{request.url}}">
+            <fieldset>
+                {{ form.hidden_tag() }}
+                {% for form_item in form.items %}
+                    {{ form_item.hidden_tag() }}
+                    {{ wtf.form_field(form_item.content) }}
+                    {{ wtf.form_field(form_item.details) }}
+                {%- endfor -%}
+                <button type="submit" class="">Submit</button>
+            </fieldset>
+        </form>
+    {%- endif -%}
+
+    <!--
     {% for item in g.items %}
-        {{item.gratitude}}
+        {% include "partials/_item.html" %}
     {%- endfor -%}
+    -->
 {%- endblock -%}
+
+{%- block footer_js -%}
+    <script>
+        var {{ config.PROJECT }} = {}; //namespace everything under here.
+        {%- block items_js %}
+        {{ config.PROJECT }}.itemsData = [
+            {%- for item in g.items -%}
+            {{item.to_dict()|safe}},
+            {%- endfor -%}
+        ];
+        {%- endblock items_js %}
+
+        {{ config.PROJECT }}.user = {
+                            'id'     : '{{current_user.id}}',
+                            'roles'  : [{% for role in current_user.roles %}'{{role.name}}'{% endfor %}],
+                            'email'  : '{{current_user.email}}'
+                          };
+    </script>
+{%- endblock footer_js -%}

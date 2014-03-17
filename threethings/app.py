@@ -8,6 +8,7 @@ from .user import user, User, Role
 
 from .config import Config, DevelopmentConfig, ProductionConfig
 from .extensions import db, mail, security
+from .utils import prettydate
 
 # For import *
 __all__ = ['create_app']
@@ -74,6 +75,10 @@ def configure_template_filters(app):
     @app.template_filter()
     def format_date(value, format='%d %b %Y'):
         return value.strftime(format)
+
+    @app.template_filter()
+    def time_ago(value):
+        return prettydate(value)
 
 def configure_logging(app):
     '''Configure file(info) and email(error) logging.'''

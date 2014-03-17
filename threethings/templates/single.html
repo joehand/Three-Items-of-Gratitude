@@ -1,0 +1,9 @@
+{% extends "_site.html" %}
+
+{%- block content -%}
+    <h1>{{date|format_date}}</h1>
+
+    {% for item in items %}
+        {% include "partials/_item.html" %}
+    {%- endfor -%}
+{%- endblock -%}

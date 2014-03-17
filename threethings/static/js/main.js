@@ -14,7 +14,7 @@ define([
 
     var appView, appModel, NAMESPACE;
 
-    NAMESPACE = things //for now...
+    NAMESPACE = ThreeThings; //for now...
 
     appModel = new AppModel(NAMESPACE);
 

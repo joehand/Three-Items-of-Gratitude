@@ -1,0 +1,8 @@
+<div class="item-single">
+    <h4 class="gratitude">{{item.content}}</h4>
+    {%- if item.details %}
+    <div class="details">{{item.details}}</div>
+    {% endif -%}
+    <span class="date">{{item.created_at|time_ago}}</span>
+    <hr/>
+</div>
