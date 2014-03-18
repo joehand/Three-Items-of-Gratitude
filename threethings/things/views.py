@@ -57,7 +57,8 @@ class ItemView(FlaskView):
                 item.save()
             g.items = Item.objects(user_ref=current_user.id)
             flash(MESSAGES['SUCCESS'])
-            return render_template('index.html')
+            form = DailyForm()
+            return render_template('index.html', form=form)
         flash(MESSAGES['ERROR_ON_FORM'])
         return render_template('index.html', form=form)
 
