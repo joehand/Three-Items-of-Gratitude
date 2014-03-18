@@ -16,6 +16,8 @@ class Config(object):
     SECURITY_TRACKABLE = True
     SECURITY_CHANGEABLE = True
     SECURITY_REGISTERABLE = True
+    SECURITY_RECOVERABLE = True
+    SECURITY_REGISTER_USER_TEMPLATE = 'security/register_user.html'
 
     #SECURITY_PASSWORD_HASH = 'bcrypt'
 
