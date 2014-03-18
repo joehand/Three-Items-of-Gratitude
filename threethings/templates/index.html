@@ -6,18 +6,19 @@
 {% block title %}{{title}}{% endblock %}
 
 {%- block content -%}
-    <h1>{{title}}</h1>
-
     {% if form %}
         <form class="form item-form" method="post" action="{{request.url}}">
             <fieldset>
                 {{ form.hidden_tag() }}
                 {% for form_item in form.items %}
+                <div class="item-form-group">
+                    <div class="item-number">{{loop.index}}</div>
                     {{ form_item.hidden_tag() }}
-                    {{ wtf.form_field(form_item.content) }}
-                    {{ wtf.form_field(form_item.details) }}
+                    {{ wtf.form_field(form_item.content, class='content', placeholder = 'Today was good because...') }}
+                    {{ wtf.form_field(form_item.details, class='details', placeholder = 'Why did this happen?') }}
+                </div>
                 {%- endfor -%}
-                <button type="submit" class="">Submit</button>
+                <button type="submit" class="btn btn-default">Submit</button>
             </fieldset>
         </form>
     {%- endif -%}
@@ -29,7 +30,7 @@
     -->
 {%- endblock -%}
 
-{%- block footer_js -%}
+{%- block page_js -%}
     <script>
         var {{ config.PROJECT }} = {}; //namespace everything under here.
         {%- block items_js %}
@@ -46,4 +47,4 @@
                             'email'  : '{{current_user.email}}'
                           };
     </script>
-{%- endblock footer_js -%}
+{%- endblock page_js -%}

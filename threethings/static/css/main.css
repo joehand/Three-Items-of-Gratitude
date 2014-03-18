@@ -1,0 +1,51 @@
+
+
+body {
+    background:#333333;
+    color:#DA4453;
+}
+
+.main {
+}
+
+.page-content {
+    max-width:500px;
+    margin:0 auto;
+}
+
+.item-form-group {
+    position:relative;
+}
+.item-number {
+    display:none;
+}
+
+.form-label {
+    display:none;
+}
+
+.form-control {
+    border-radius:0;
+    border:none;
+    padding:5px;
+    margin:10px 0;
+}
+
+
+.content .form-control {
+        background:#333;
+        border:none;
+        min-height:50px;
+        border-bottom:1px dashed #DA4453;
+        font-size:24px;
+        margin-bottom:10px;
+        color:#CCD1D9;
+}
+
+
+.details .form-control {
+        background:rgba(67,74,84,0.2);
+        font-size:16px;
+        padding:5px;
+        color:#CCD1D9;
+}

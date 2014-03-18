@@ -6,13 +6,13 @@ from wtforms.validators import length, optional, required
 class ItemForm(Form):
     ''' Form to submit an item of gratitude
     '''
-    content = TextField(
-                    'What good thing happened?',
-                    validators=[required(), length(max=150)]
+    content = TextAreaField(
+                    'Good Thing',
+                    validators=[required(), length(max=150)],
                 )
     details = TextAreaField(
-                    'Why did it happen?',
-                    validators=[optional()]
+                    'Details',
+                    validators=[optional()],
                 )
 
 class DailyForm(Form):

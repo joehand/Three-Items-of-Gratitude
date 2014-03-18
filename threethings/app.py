@@ -18,7 +18,8 @@ DEFAULT_BLUEPRINTS = (
     user,
 )
 
-def create_app(config=None, app_name=None, blueprints=None, tmpl_dir=None):
+def create_app(config=None, app_name=None,
+            blueprints=None, tmpl_dir=None, static_dir=None):
     '''Create a Flask app.'''
 
     if app_name is None:
@@ -26,9 +27,15 @@ def create_app(config=None, app_name=None, blueprints=None, tmpl_dir=None):
     if blueprints is None:
         blueprints = DEFAULT_BLUEPRINTS
     if tmpl_dir is None:
-        tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+        tmpl_dir = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), 'templates')
+    if static_dir is None:
+        static_dir = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), 'static')
 
-    app = Flask(app_name, template_folder=tmpl_dir)
+    app = Flask(app_name,
+            template_folder=tmpl_dir,
+            static_folder=static_dir)
     configure_app(app, config)
     configure_hook(app)
     configure_blueprints(app, blueprints)

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,17 +36,17 @@
         {% endblock site_header -%}
 
         {%- block main %}
-            <main role="main" class="main wrapper">
+            <main role="main" class="main container-fluid">
                 {%- block main_header -%}
                 {% endblock main_header -%}
                 <div class="page-content">
                     {%- with messages = get_flashed_messages() %}
                           {% if messages %}
-                            <ul class="flashes">
+                            <div class="flashes">
                             {% for message in messages %}
-                                <li>{{ message | safe}}</li>
+                                <div class="alert alert-info">{{ message | safe}}</div>
                             {% endfor %}
-                            </ul>
+                            </div>
                           {% endif %}
                     {%- endwith -%}
 
@@ -64,6 +64,10 @@
 
         </div> <!-- document -->
     {%- block footer_js -%}
+        <script data-main="{{ url_for('static', filename='js/app')}}" src="{{ url_for('static', filename='js/libs/require.js')}}"></script>
+
+        {%- block page_js -%}
+        {%- endblock page_js -%}
     {%- endblock footer_js -%}
     </body>
 </html>

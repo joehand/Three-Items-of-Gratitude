@@ -16,7 +16,7 @@ define([
 
         },
 
-        initialize: function(opt)
+        initialize: function(opt) {
 
         },
 

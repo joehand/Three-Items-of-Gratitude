@@ -59,7 +59,6 @@ class ItemView(FlaskView):
             flash(MESSAGES['SUCCESS'])
             return render_template('index.html')
         flash(MESSAGES['ERROR_ON_FORM'])
-        print form.errors.asdf
         return render_template('index.html', form=form)
 
     @login_required
