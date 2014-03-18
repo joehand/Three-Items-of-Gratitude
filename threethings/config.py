@@ -15,10 +15,12 @@ class Config(object):
     # Flask Security Config
     SECURITY_TRACKABLE = True
     SECURITY_CHANGEABLE = True
+    SECURITY_REGISTERABLE = True
 
     #SECURITY_PASSWORD_HASH = 'bcrypt'
 
     PRODUCTION = False
+
 
 class ProductionConfig(Config):
 
