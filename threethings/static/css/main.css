@@ -74,10 +74,14 @@ textarea.form-control::-webkit-input-placeholder {
         color:#CCD1D9;
 }
 
+.details {
+    display:none;
+}
 
 .details .form-control {
         background:rgba(67,74,84,0.2);
         font-size:16px;
         padding:5px;
         color:#CCD1D9;
+        opacity:0;
 }
