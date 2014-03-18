@@ -14,11 +14,11 @@
                 <div class="item-form-group">
                     <div class="item-number">{{loop.index}}</div>
                     {{ form_item.hidden_tag() }}
-                    {{ wtf.form_field(form_item.content, class='content', placeholder = 'Today was good because...') }}
-                    {{ wtf.form_field(form_item.details, class='details', placeholder = 'Why did this happen?') }}
-                </div>
+                    {{ wtf.form_field(form_item.content, class='content', autofocus='autofocus', placeholder = 'I went for a nice walk.') }}
+                    <!--{{ wtf.form_field(form_item.details, class='details', placeholder = 'Why did this happen?') }}
+                --></div>
                 {%- endfor -%}
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default float-right">Thanks</button>
             </fieldset>
         </form>
     {%- endif -%}

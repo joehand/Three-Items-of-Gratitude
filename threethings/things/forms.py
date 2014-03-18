@@ -7,7 +7,7 @@ class ItemForm(Form):
     ''' Form to submit an item of gratitude
     '''
     content = TextAreaField(
-                    'Good Thing',
+                    'Today was good because...',
                     validators=[required(), length(max=150)],
                 )
     details = TextAreaField(
@@ -18,4 +18,4 @@ class ItemForm(Form):
 class DailyForm(Form):
     ''' Multiple items on one form!! Magic.
     '''
-    items = FieldList(FormField(ItemForm), min_entries=3)
+    items = FieldList(FormField(ItemForm), min_entries=1)

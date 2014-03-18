@@ -8,6 +8,11 @@ body {
 .main {
 }
 
+.alert {
+    background:rgba(218,68,83,0.25);
+    color:#CCD1D9;
+}
+
 .page-content {
     max-width:500px;
     margin:0 auto;
@@ -21,16 +26,38 @@ body {
 }
 
 .form-label {
-    display:none;
+    font-size:24px;
+    color:#DA4453;
+    opacity:0.25;
 }
 
 .form-control {
+    opacity:0.25;
     border-radius:0;
     border:none;
     padding:5px;
     margin:10px 0;
 }
 
+.form-control:active, .form-control:focus, .form-control:hover {
+    opacity:1;
+}
+
+.item-form .btn {
+    float:right;
+    font-size:18px;
+    color:#DA4453;
+    opacity:0.25;
+    border:none;
+    background:rgba(67,74,84, 0.5);
+    border-radius:0;
+    text-transform:uppercase;
+    transition: opacity 0.2s ease-in;
+}
+
+.item-form .btn:hover {
+    opacity:1;
+}
 
 .content .form-control {
         background:#333;
